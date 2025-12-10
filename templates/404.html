@@ -1,61 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .error-container {
-            max-width: 800px;
-            margin: 100px auto;
-            text-align: center;
-            padding: 2rem;
-            background: rgba(42, 42, 58, 0.5);
-            border-radius: 10px;
-            border: 1px solid #2a2a3a;
-        }
-        .error-code {
-            font-size: 5rem;
-            color: #ff4757;
-            margin-bottom: 1rem;
-            font-family: 'Roboto Mono', monospace;
-        }
-        .error-message {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="/" class="logo">
-                <i class="fas fa-shield-alt"></i>
-                <span>Hacker Hub</span>
-            </a>
-        </div>
-    </nav>
+{% extends "base.html" %}
 
-    <main>
-        <div class="error-container">
-            <div class="error-code">404</div>
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle"></i>
-                Page Not Found
-            </div>
-            <p>The requested URL was not found on this server.</p>
-            <p>If you entered the URL manually, please check your spelling and try again.</p>
-            <div style="margin-top: 2rem;">
-                <a href="/" class="btn btn-primary">
-                    <i class="fas fa-home"></i> Return Home
-                </a>
-                <a href="/dashboard" class="btn btn-secondary">
-                    <i class="fas fa-tachometer-alt"></i> Go to Dashboard
-                </a>
-            </div>
-        </div>
-    </main>
-</body>
-</html>
+{% block title %}404 - Page Not Found{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 100px 20px;">
+    <h1 style="font-size: 8rem; color: #ff4757;">404</h1>
+    <h2><i class="fas fa-exclamation-triangle"></i> Page Not Found</h2>
+    <p>The requested URL was not found on this server.</p>
+    <div style="margin-top: 30px;">
+        <a href="/" class="btn">
+            <i class="fas fa-home"></i> Return Home
+        </a>
+    </div>
+</div>
+{% endblock %}
