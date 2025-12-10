@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Hacker Hub{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <h1>
+            <span class="hacker-text">HACKER HUB</span>
+            <br>
+            <span class="subtitle">Social Platform for Ethical Hackers</span>
+        </h1>
+        
+        <div class="tagline">
+            <p>🔍 Discover tools | 🤝 Connect with peers | 🚀 Build skills</p>
+        </div>
+        
+        <div class="cta-buttons">
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">
+                <i class="fas fa-user-plus"></i> Create Account
+            </a>
+            <a href="{{ url_for('anonymous') }}" class="btn btn-secondary">
+                <i class="fas fa-user-secret"></i> Continue Anonymously
+            </a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-tools"></i>
+                <h3>500+ Hacking Tools</h3>
+                <p>Categorized by platform and skill level</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h3>Community Driven</h3>
+                <p>Learn from experienced ethical hackers</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Learning Paths</h3>
+                <p>Structured paths from beginner to expert</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="terminal-preview">
+        <div class="terminal-header">
+            <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">terminal@hackerhub:~</span>
+        </div>
+        <div class="terminal-body">
+            <p><span class="prompt">$</span> whoami</p>
+            <p class="output">ethical_hacker</p>
+            <p><span class="prompt">$</span> cat ethics.txt</p>
+            <p class="output">Always have proper authorization</p>
+            <p class="output">Respect privacy and laws</p>
+            <p class="output">Share knowledge responsibly</p>
+            <p><span class="prompt">$</span> <span class="cursor">█</span></p>
+        </div>
+    </div>
+</div>
+
+<div class="platforms">
+    <h2>Supported Platforms</h2>
+    <div class="platform-icons">
+        <div class="platform">
+            <i class="fab fa-linux"></i>
+            <span>Linux/Kali</span>
+        </div>
+        <div class="platform">
+            <i class="fab fa-windows"></i>
+            <span>Windows</span>
+        </div>
+        <div class="platform">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Mobile</span>
+        </div>
+        <div class="platform">
+            <i class="fas fa-cloud"></i>
+            <span>Web/Cloud</span>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Typewriter effect for terminal
+    document.addEventListener('DOMContentLoaded', function() {
+        const commands = [
+            'nmap -sV target.com',
+            'sqlmap -u "https://example.com/page?id=1"',
+            'john --wordlist=rockyou.txt hash.txt',
+            'aircrack-ng capture.cap',
+            'msfconsole -q'
+        ];
+        
+        let current = 0;
+        const cursor = document.querySelector('.cursor');
+        
+        function typeCommand() {
+            cursor.parentElement.textContent = '$ ' + commands[current];
+            cursor.style.display = 'inline';
+            
+            current = (current + 1) % commands.length;
+            setTimeout(typeCommand, 3000);
+        }
+        
+        setTimeout(typeCommand, 2000);
+    });
+</script>
+{% endblock %}
