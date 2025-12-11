@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Hacker Hub{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <div class="dashboard-header">
+        <h1>Welcome, {{ user.username if user else 'Hacker' }}</h1>
+        <div class="user-stats">
+            {% if user and not user.anonymous %}
+            <span>Experience: {{ user.experience }}</span>
+            <span>Following: {{ user.followed_tools|length }} tools</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <a href="/tools" class="action-card">
+                <i class="fas fa-tools"></i>
+                <h3>Browse Tools</h3>
+                <p>Explore 500+ hacking tools</p>
+            </a>
+            <a href="#" class="action-card">
+                <i class="fas fa-users"></i>
+                <h3>Community</h3>
+                <p>Join discussions</p>
+            </a>
+            <a href="#" class="action-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Learning Path</h3>
+                <p>Structured training</p>
+            </a>
+        </div>
+
+        <!-- Recent Tools -->
+        <div class="recent-tools">
+            <h2>Recently Added Tools</h2>
+            <div class="tools-list">
+                <div class="tool-card">
+                    <h4>Nmap</h4>
+                    <p>Network discovery & security auditing</p>
+                    <span class="tag beginner">Beginner</span>
+                    <span class="tag platform">Linux</span>
+                </div>
+                <div class="tool-card">
+                    <h4>Burp Suite</h4>
+                    <p>Web vulnerability scanner</p>
+                    <span class="tag intermediate">Intermediate</span>
+                    <span class="tag platform">Web</span>
+                </div>
+                <!-- Add more tools -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
