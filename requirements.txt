@@ -1,6 +1,16 @@
 Flask==3.0.0
+Flask-SQLAlchemy==3.1.1
+Flask-Login==0.6.3
+Flask-Bcrypt==1.0.1
 Flask-CORS==4.0.0
+Flask-Migrate==4.0.5
+Flask-Mail==0.9.1
+python-dotenv==1.0.0
 Werkzeug==3.0.1
 Jinja2==3.1.2
 itsdangerous==2.1.2
 click==8.1.7
+gunicorn==21.2.0
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.23
+email-validator==2.1.0
