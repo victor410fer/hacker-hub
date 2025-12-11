@@ -1,18 +1,27 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "api/*.py",
+      "src": "app.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      },
+      "dest": "/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/api/index.py"
+      "dest": "app.py"
     }
   ],
   "env": {
-    "PYTHON_VERSION": "3.9"
+    "PYTHONPATH": ".",
+    "FLASK_APP": "app.py",
+    "SECRET_KEY": "your-production-secret-key-change-this",
+    "DATABASE_URL": "postgresql://user:pass@host/dbname"
   }
 }
