@@ -10,6 +10,7 @@ ENV/
 env.bak/
 venv.bak/
 *.sqlite3
+instance/
 
 # Vercel
 .vercel/
@@ -33,13 +34,18 @@ yarn-error.log*
 .idea/
 *.swp
 *.swo
-*~
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Project specific
-tools.json
+# Logs
 *.log
-instance/
+logs/
+
+# Database
+*.db
+migrations/
+
+# Static files (for development)
+static/uploads/
